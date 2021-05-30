@@ -1938,7 +1938,7 @@ Vue.componend('color-preview', {
         // 还可以赋值对象，对属性进行更详细得配置
         itemC: {
             type: String
-            default: 'aaa', // 默认值,
+            default: 'aaa', // 默认值, 注意：对象或数组的默认值必须使用function返回 原因与data相同
         }
         item: {
             type: String, // 类型,
@@ -2133,6 +2133,13 @@ Vue.component('custom-input', {
 ```
 
 **注意点：** 可以看到`v-model`的子传父， 子组件的必须要定义`input`事件，之后通过在`input`事件中，触发父元素的`input`事件，从而改变父元素值 （与 `.sync`最大的区别就是子组件本身必须定义事件）
+
+#### 使用props传递已有attribute
+
+- 对于绝大多数 attribute 来说，从外部提供给组件的值会替换掉组件内部设置好的值。
+- **特例**： `class` 和 `style` attribute 会稍微智能一些，即两边的值会被合并起来，从而得到最终的值
+
+
 
 ### 自定义事件
 
