@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+     const kruskal = function(){
+        var length = this.graph.length,
+            parent = [], cost,
+            ne = 0, a, b, u, v, i, j, min;
+            
+            cost = initializeCost();
+
+            while(ne<length-1) {
+
+                for(i=0, min = INF;i < length; i++) {
+                    for(j=0;j < length; j++) {
+                        if(cost[i][j] < min) {
+                            min=cost[i][j];
+                            a = u = i;
+                            b = v = j;
+                        }
+                    }
+                }
+
+                u = find(u, parent);
+                v = find(v, parent);
+
+                if (union(u, v, parent)){
+                    ne++;
+                }
+
+                cost[a][b] = cost[b][a] = INF;
+            }
+
+            return parent;
+    }
+    </script>
+</body>
+</html>

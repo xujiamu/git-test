@@ -1,0 +1,212 @@
+html {
+    box-sizing: border-box;
+
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.find_back_pwd {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.find_back_pwd .find_back_box {
+    width: 661px;
+    height: 512px;
+    border-radius: 10px;
+    background: #fff;
+    margin: 100px auto;
+    border: 1px solid #fff;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(51, 162, 247, .2)
+}
+
+.find_back_pwd .find_back_box .find_title {
+    width: 424px;
+    height: 58px;
+    margin: 35px auto;
+    background: url(img/find.png) center center no-repeat
+}
+
+.find_back_pwd .find_back_box .find_title p {
+    text-align: center;
+    line-height: 58px;
+    font-size: 20px;
+    color: #33a2f7;
+    font-family: "PingFang SC"
+}
+
+.find_back_pwd .find_back_box .go_login {
+    text-decoration: none;
+    width: 92px;
+    height: 49px;
+    display: block;
+    position: absolute;
+    top: 42px;
+    right: -13px;
+    line-height: 54px;
+    text-indent: 33px;
+    color: #fff;
+    letter-spacing: 1px;
+    background: url(img/go-login.png) center center no-repeat
+}
+
+.find_back_pwd .find_back_box .step_progress {
+    width: 100%;
+    padding: 0 46px;
+}
+
+.find_back_pwd .find_back_box .step_progress ul {
+    height: 45px;
+    border-bottom: 2px solid #e6e6e6;
+
+}
+
+.find_back_pwd .find_back_box .step_progress ul li {
+    width: 172px;
+    height: 45px;
+    display: inline-block
+}
+
+.find_back_pwd .find_back_box .step_progress ul li em {
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    background: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 10px;
+    margin-left: 25px
+}
+
+.find_back_pwd .find_back_box .step_progress ul li i {
+    font-size: 16px;
+    color: #000;
+    font-weight: 800;
+    display: inline-block
+}
+
+.find_back_pwd .find_back_box .step_progress ul li.on {
+    border-bottom: 2px solid #33a2f7
+}
+
+.find_back_pwd .find_back_box .step_progress ul li.on em {
+    background: #33a2f7
+}
+
+.find_back_pwd .find_back_box .password_form {
+    width: 400px;
+    margin: 45px auto
+}
+
+.find_back_pwd .find_back_box .password_form .item {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    position: relative
+}
+
+.find_back_pwd .find_back_box .password_form .item .w243 {
+    width: 243px !important
+}
+
+.find_back_pwd .find_back_box .password_form .item .tips {
+    position: absolute;
+    width: 100%;
+    height: 16px;
+    background: url(img/tips.png) 5px center no-repeat;
+    text-indent: 30px;
+    font-size: 12px;
+    color: #f84224;
+    opacity: 0;
+    top: -25px;
+    transition: all .3s
+}
+
+.find_back_pwd .find_back_box .password_form .item .tips.show {
+    opacity: 1;
+    top: -22px
+}
+
+.find_back_pwd .find_back_box .password_form .item .name {
+    display: block;
+    width: 37px;
+    height: 22px;
+    border-right: 1px solid #dadada;
+    position: absolute;
+    top: 13px;
+    text-align: center;
+    color:#282828;
+    z-index: 1;
+}
+
+.find_back_pwd .find_back_box .password_form .item .input_text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    text-indent: 50px;
+    outline: 0;
+    transition: all .5s
+}
+
+.find_back_pwd .find_back_box .password_form .item .input_text:focus {
+    border-color: #fa8838
+}
+
+.find_back_pwd .find_back_box .password_form .item .get_code {
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background: #ffbc3a;
+    float: right;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer
+}
+
+.find_back_pwd .find_back_box .password_form .item .get_code.sending {
+    background: #d2d2d2
+}
+
+.find_back_pwd .find_back_box .password_form .next {
+    width: 200px;
+    height: 48px;
+    margin: 30px auto;
+    line-height: 48px;
+    text-align: center;
+    background: #33a2f7;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(51, 162, 247, .4)
+}
+
+.find_back_pwd .find_back_box .password_form .find_success {
+    padding-top: 27px;
+    text-align: center;
+    line-height: 70px
+}
+
+.find_back_pwd .find_back_box .password_form .find_success img {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.find_back_pwd .find_back_box .password_form .find_success span {
+    display: inline-block;
+    font-size: 22px;
+    color: #fcb141;
+    padding-left: 20px;
+    vertical-align: middle
+}

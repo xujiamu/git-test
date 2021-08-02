@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let b = 1
+  function a() {
+    while (b++<  2) {
+      console.log(b);
+      a()
+    }
+  }
+
+  a()
+  console.log(b);
+
+  function sum(...args) {
+    console.log([...args]);
+    console.log({...args});
+    console.log(...args);
+    console.log(args);
+    return args.reduce((pre,current) => {
+      return pre+current
+    })
+  }
+
+  console.log(sum(1, 2, 3, 4, 5));  //15
+
+</script>
+</body>
+</html>

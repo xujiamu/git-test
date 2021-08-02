@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二分查找</title>
+</head>
+<body>
+<script>
+    function binarySearch(arr,guest) {
+        var i = 0;
+        var len = arr.length-1;
+        //测试查找次数
+        var j = 0;
+        while (i<=len){
+            var mid = Math.floor((i+len)/2);
+            j++;
+           if (arr[mid] == guest)  return console.log("共查找"+j+"次，查找数字在第"+(mid+1)+"位");
+           if (arr[mid]<guest){
+               i=mid+1;
+           } else {
+               len = mid-1;
+           }
+        }
+        return console.log("未找到输入的数字");
+    };
+    binarySearch([1,23,34,45,56,68,79,80,91,103],103)
+</script>
+</body>
+</html>

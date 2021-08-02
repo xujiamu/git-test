@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script>
+// 书中kruskal算法最终结果有误， 这里使用另一种写法
+
+function getEdges(graph) {
+    const dist = [], edge = []
+    for (let i = 0; i < graph.length; i++) {
+        for (let j = 0; j < graph.length; j++) {
+            if (graph[i][j] > 0) {
+                dist.push(graph[i][j]) // 存权值
+                edge.push([i, j]) // 存顶点
+                // 保存i,j后,因为是无向图,为了防止后续循环重复保存将 j, i  置为0 
+                graph[j][i] = 0
+            }
+        }
+    }
+    return {
+        dist,
+        edge
+    }
+}
+
+function edgeSortFun(getEdge) {
+    const {dist, edge} = getEdge
+    for (let i = 0; i < dist.length - 1; i++) {
+        for (let j = 0; j < dist.length - 1 - i; j++) {
+            if (dist[j] > dist[j + 1]) {
+                [dist[j], dist[j+1]] = [dist[j+1], dist[j]]
+                [edge[j], edge[j+1]] = [edge[j+1], edge[j]]
+            }
+        }
+    }
+    return edge
+}
+
+function find(i, parent) {
+    while(parent[i]) {
+        i = parent[i]
+    }
+    return i
+}
+
+function union (i, j, parent) {
+    if (i !== j) {
+        parent[j] = i
+        return true
+    }
+    return false
+}
+
+const kruskal = (graph) => {
+    // 保存距离dist 和 边 edge, 注意这里会对原graph的值造成影响， 如果不想改变值， 可以在函数内定义一个保存graph的新数组使用
+    const getEdge = getEdges(graph)
+    
+    // 使用冒泡排序对得到的边进行排序
+    const edgeSort = edgeSortFun(getEdge)
+    
+    // 保存结果的数组
+    const result = []
+    // 保存并查集
+    const parent = []
+    let k = 0 // 用于从edgeSort 中获得边
+    // 边数量等于顶点数量减一
+    while (result.length < graph.length - 1) {
+        const v = edgeSort[k]
+        // find  得到顶点的终点 union  判断终点是否相等， 这种方式称为并查集
+        const i = find(v[0], parent)
+        const j = find(v[1], parent)
+        if (union(i, j, parent)) {
+            result.push(v)
+        }
+        k++
+    }
+    return result
+}
+
+const graph = [
+  [0, 2, 4, 0, 0, 0],
+  [2, 0, 2, 4, 2, 0],
+  [4, 2, 0, 0, 3, 0],
+  [0, 4, 0, 0, 3, 2],
+  [0, 2, 3, 3, 0, 2],
+  [0, 0, 0, 2, 2, 0]
+];
+
+const parent = kruskal(graph)
+console.log(parent, graph);
+    </script>
+</body>
+</html>

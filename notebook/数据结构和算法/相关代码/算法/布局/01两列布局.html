@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+/*    .left {
+      width: 100px;
+      height: 500px;
+      float: left;
+      background:red;
+    }
+    .right {
+      height: 500px;
+      overflow: hidden;
+      background: black;
+    }*/
+    /*.parent{
+      height: 500px;
+      padding-left: 100px;  !*抵消#left的margin-left以达到#parent水平居中*!
+    }
+    .left {
+      width: 100%;
+      height: 500px;
+      float: left;
+      margin-left: -100px; !*正值等于#right的宽度*!
+      background-color: #f00;
+    }
+    .right {
+      height: 500px;
+      width: 100px;
+      float: right;
+      background-color: #0f0;
+    }*/
+  /*  .left {
+      overflow: hidden;  !*触发bfc*!
+      height: 500px;
+      background-color: #f00;
+    }
+    .right {
+      float: right;
+      width: 100px;
+      height: 500px;
+      background-color: #0f0;
+    }*/
+
+    .parent {
+      width: 100%;
+      display: table;
+      height: 500px;
+    }
+    .right {
+      display: table-cell;
+      width: 100px;
+      background: #0f0;
+    }
+    .left {
+      display: table-cell;
+      background: #f00;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="left"></div>
+    <div class="right"></div>
+    <!--<div class="right"></div>-->
+    <!--<div class="left"></div>-->
+  </div>
+</body>
+</html>

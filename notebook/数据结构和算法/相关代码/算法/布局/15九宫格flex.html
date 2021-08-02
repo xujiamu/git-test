@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .parent {
+      display: flex;
+      height: 500px;
+      flex-direction: column;
+      margin-left: -5px;
+    }
+    .row {
+      display: flex;
+      flex: 1;
+      margin-bottom: 5px;
+    }
+    .column {
+      flex: 1;
+      margin-left: 5px;
+    }
+    .column:nth-child(odd) {
+      background: #0f0;
+    }
+    .column:nth-child(even) {
+      background: #0ff;
+    }
+  </style>
+</head>
+<body>
+<div class="parent">
+  <div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+  <div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+  <div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+</div>
+</body>
+</html>

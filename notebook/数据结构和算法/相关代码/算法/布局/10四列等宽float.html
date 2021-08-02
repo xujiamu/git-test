@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #parent {
+      margin-left: -15px;
+    }
+    .column {
+      box-sizing: border-box;
+      padding-left: 15px;
+      width: 25%;
+      height: 500px;
+      float: left;
+      border: 1px solid black;
+      background-clip: content-box;
+    }
+    .column:nth-child(odd) {
+      /*这里不能使用background 如果使用，background-clip会失效*/
+      background-color: #0f0;
+    }
+    .column:nth-child(even) {
+      background-color: #0ff;
+    }
+  </style>
+</head>
+<body>
+<div id="parent">
+  <div class="column">1<p>xdgeggwgcsef</p></div>
+  <div class="column">2<p>xdgeggwgcsef</p></div>
+  <div class="column">3<p>xdgeggwgcsef</p></div>
+  <div class="column">4<p>xdgeggwgcsef</p></div>
+</div>
+</body>
+</html>

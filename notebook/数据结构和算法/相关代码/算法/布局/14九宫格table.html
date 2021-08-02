@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .parent {
+      display: table;
+      border-spacing: 2px;
+      margin: -2px 0;
+      height: 500px;
+      width: 100%;
+    }
+    .row {
+      display: table-row;
+    }
+    .column {
+      display: table-cell;
+    }
+    .column:nth-child(odd) {
+      background: #0f0;
+    }
+    .column:nth-child(even) {
+      background: #0ff;
+    }
+  </style>
+</head>
+<body>
+<div class="parent">
+  <div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+  <div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+  <div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+  </div>
+</div>
+</body>
+</html>

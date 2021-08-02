@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  function MVVM(options) {
+    //将传入的对象绑定到$options
+    this.$options = options || {}
+    const data = this._data = this.$options.data
+    const me = this
+    //得到data中所有的属性
+    Object.keys(data).forEach(function (key) {
+      //实现数据代理
+      me._proxy(key)
+    })
+
+    // 创建一个用来编译模板的compile对象
+    this.$compile = new Compile(options.el || document.body, this)
+  }
+  MVVM.prototype = {
+    constructor:MVVM,
+    // 对指定属性实现代理
+    _proxy: function (key) {
+      // 保存vm
+      const me = this;
+      // 给vm添加指定属性名的属性(使用属性描述)
+      Object.defineProperty(me, key, {
+        configurable: false, // 不能再重新定义
+        enumerable: true, // 可以枚举
+        // 当通过vm.name读取属性值时自动调用
+        get: function proxyGetter() {
+          // 读取data中对应属性值返回(实现代理读操作)
+          return me._data[key];
+        },
+        // 当通过vm.name = 'xxx'时自动调用
+        set: function proxySetter(newVal) {
+          // 将最新的值保存到data中对应的属性上(实现代理写操作)
+          me._data[key] = newVal;
+        }
+      });
+    }
+  }
+
+  function Compile(el, vm) {
+    // 保存vm
+    this.$vm = vm;
+    // 保存el元素
+    this.$el = this.isElementNode(el) ? el : document.querySelector(el);
+    // 如果el元素存在
+    if (this.$el) {
+      // 1. 取出el中所有子节点, 封装在一个framgment对象中
+      this.$fragment = this.node2Fragment(this.$el);
+      // 2. 编译fragment中所有层次子节点
+      this.init();
+      // 3. 将fragment添加到el中
+      this.$el.appendChild(this.$fragment);
+    }
+  }
+
+  Compile.prototype = {
+    constructor:Compile,
+    node2Fragment: function (el) {
+      var fragment = document.createDocumentFragment(),
+          child;
+
+      // 将原生节点拷贝到fragment
+      while (child = el.firstChild) {
+        fragment.appendChild(child);
+      }
+
+      return fragment;
+    },
+  }
+</script>
+</html>

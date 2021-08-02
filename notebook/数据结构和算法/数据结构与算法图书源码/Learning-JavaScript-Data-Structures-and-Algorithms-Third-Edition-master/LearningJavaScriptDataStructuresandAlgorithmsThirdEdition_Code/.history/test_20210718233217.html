@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script>
+// 定义图
+class Graph {
+    constructor(isDirected = false) {
+        this.vertices = [] // 保存顶点
+        this.adjList = {} // 原书中用字典保存， 这里直接使用对象
+        this.isDirected = isDirected // 是否有向
+    }
+    // 添加顶点
+    addVertex(v) {
+        if (!this.vertices.includes(v)) {
+            this.vertices.push(v)
+            this.adjList[v] = []
+        }
+    }
+    // 添加边 边连接两个顶点， 所以两个参数为顶点v 顶点w
+    addEdge(v, w) {
+        // 这里实际上不用if判断直接执行addVertex即可， 且在addVertex方法中 使用 if(!this.adjList[v]) 方式来判断， 同样可以减少复杂度， 而当前写法优势是代码含义更明确（在添加顶点中，判断顶点是否存在， 在添加边中， 判断保存边的数组是否存在）
+        if (!this.adjList[v]) { 
+           this.addVertex(v)
+        }
+        if (!this.adjList[w]) {
+           this.addVertex(w)
+        }
+        // 代表v到w有边
+        this.adjList[v].push(w)
+        if (!this.isDirected) {
+            // 如果非有向, 那么w到v同样有边
+            this.adjList[w].push(v)
+        }
+    }
+    
+    // 返回顶点列表
+    getVertices() {
+        return this.vertices
+    }
+    
+    
+    // 返回边列表
+    getAdjList() {
+        return this.adjList
+    }
+}
+    </script>
+</body>
+</html>

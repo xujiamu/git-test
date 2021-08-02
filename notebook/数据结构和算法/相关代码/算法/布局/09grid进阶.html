@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      box-sizing: border-box;
+    }
+    .hg{
+      display: grid;
+      height: 100vh;
+      grid-template-columns: 100px auto 100px;
+      grid-template-rows:80px auto 80px ;
+      grid-template-areas: "header header header"
+                           "leftside main rightside"
+                           "footer footer footer";
+    }
+    .hg_left {
+      grid-area: leftside;
+      background: #ff0;
+    }
+    .hg_right {
+      grid-area: rightside;
+      background: #f0f;
+    }
+    .hg_main {
+      grid-area: main;
+      background: #0ff;
+      word-break: break-all;
+    }
+    .hg_header {
+      grid-area: header;
+      background: #ccc;
+    }
+    .hg_footer {
+      grid-area: footer;
+      background: #ccc;
+    }
+    @media screen and (max-width: 600px){
+      .hg {
+        grid-template-columns: auto;
+        grid-template-rows:80px 80px auto 80px 80px ;
+        grid-template-areas: "header"
+        "leftside"
+        "main"
+        "rightside"
+        "footer";
+      }
+      .hg_main {
+        word-break: break-all;
+      }
+    }
+  </style>
+</head>
+<body class="hg">
+<div class="hg_header">顶栏</div>
+<div class="hg_left">左侧栏</div>
+<div class="hg_main">
+  <p>eogngoeenogenogangengowengowngowagnognowegnowgnaognweognwoegnowegnwgnoagnegnowango</p>
+  <p>eogngoeenogenogangengowengowngowagnognowegnowgnaognweognwoegnowegnwgnoagnegnowango</p>
+  <p>eogngoeenogenogangengowengowngowagnognowegnowgnaognweognwoegnowegnwgnoagnegnowango</p>
+  <p>eogngoeenogenogangengowengowngowagnognowegnowgnaognweognwoegnowegnwgnoagnegnowango</p>
+</div>
+<div class="hg_right">右侧栏</div>
+<div class="hg_footer">底栏</div>
+</body>
+</html>
